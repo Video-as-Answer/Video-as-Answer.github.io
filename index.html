@@ -1310,11 +1310,14 @@
                 <section id="abstract" class="abstract section">
                     <h2>Abstract</h2>
                     <div class="teaser-image-container" style="text-align: center; ">
-                        <img src="images/teaser.png" alt="AnimeShooter Teaser" class="teaser-image" style="transform: scale(1.2); display: inline-block;">
+                        <video class="teaser-image" autoplay muted loop playsinline style="transform: scale(1.2); display: inline-block; max-width: 100%; height: auto;">
+                            <source src="videos/teaser.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
-                    <p>While language models have become impactful in many real-world applications, video generation remains largely confined to entertainment. Motivated by video's inherent capacity to demonstrate physical-world information that is difficult to convey through language alone (e.g., imagine teaching someone to tie a tie using only text), we identify an underutilized opportunity to extend video as a new answer modality for Next-Event Prediction (NEP), formalized as <b>Video-Next-Event Prediction (VNEP)</b>. While the established NEP task takes a video with a procedural or predictive question as input to predict the next event in text, VNEP requires dynamic video responses. This shift from telling to showing unlocks more intuitive and customized answers for procedural learning and creative exploration. However, this task remains challenging for existing models, as it demands an understanding of multimodal input, instruction-conditioned reasoning, and the generation of video with visual and semantic consistency. To address this, we introduce <b>VANS</b>, a model that leverages reinforcement learning to align a Vision-Language Model (VLM) with a Video Diffusion Model (VDM) for VNEP. The core of VANS is our proposed <b>Joint-GRPO</b> that orchestrates the VLM and VDM to function as a unit. Driven by a shared reward on their respective output, it optimizes the VLM to produce captions that are both accurate and friendly to visualize, while guiding the VDM to generate videos that are faithful to these captions and the input visual context. To enable this learning, we craft <b>VANS-Data-100K</b>, a dedicated dataset for the VNEP task. Experiments on procedural and predictive benchmarks demonstrate that VANS achieves state-of-the-art performance in both video event prediction and visualization.</p>
+                    <p>While language models have become impactful...</p>
                 </section>
-
+                
                 <section id="Dataset" class="data section">
                     <h2>VANS-Data-100K Dataset</h2>
                     <div class="teaser-image-container" style="text-align: center; ">
@@ -2110,4 +2113,5 @@
 </body>
 
 </html>
+
 
