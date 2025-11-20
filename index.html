@@ -1310,7 +1310,7 @@
                 <section id="abstract" class="abstract section">
                     <h2>Abstract</h2>
                     <div class="teaser-image-container" style="text-align: center; ">
-                        <video id="teaserVideo" class="teaser-image" muted playsinline style="transform: scale(1.2); display: inline-block; max-width: 100%; height: auto;">
+                        <video class="teaser-image" autoplay muted loop playsinline style="transform: scale(1.2); display: inline-block; max-width: 100%; height: auto;">
                             <source src="videos/teaser.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -1509,57 +1509,6 @@
     </footer>
 
     <script>
-
-        // 控制teaser视频播放：播放一次，暂停2秒，再循环
-        function setupTeaserVideo() {
-            const teaserVideo = document.getElementById('teaserVideo');
-            if (!teaserVideo) return;
-            
-            let hasPlayedOnce = false;
-            
-            teaserVideo.addEventListener('loadedmetadata', function() {
-                // 视频加载完成后开始播放
-                teaserVideo.play().catch(e => {
-                    console.log('Autoplay prevented:', e);
-                });
-            });
-            
-            teaserVideo.addEventListener('timeupdate', function() {
-                // 当视频播放到接近结束时（最后0.1秒），暂停并设置定时器
-                if (!hasPlayedOnce && this.currentTime >= this.duration - 0.1) {
-                    hasPlayedOnce = true;
-                    this.pause();
-                    
-                    // 暂停2秒后重新开始播放并设置循环
-                    setTimeout(() => {
-                        this.currentTime = 0;
-                        this.play();
-                        this.loop = true; // 启用循环
-                    }, 2000);
-                }
-            });
-            
-            // 确保视频在页面可见时重新开始播放流程
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && hasPlayedOnce) {
-                        // 当视频再次进入视口时，重置播放状态
-                        teaserVideo.currentTime = 0;
-                        teaserVideo.play();
-                    }
-                });
-            });
-            
-            observer.observe(teaserVideo);
-        }
-        
-        // 在DOM加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            setupTeaserVideo();
-            // 其他现有的初始化代码...
-        });
-
-
     
         const copyButton = document.getElementById('copy-btn');
         const citationCode = document.getElementById('citation-code');
@@ -2164,6 +2113,7 @@
 </body>
 
 </html>
+
 
 
 
